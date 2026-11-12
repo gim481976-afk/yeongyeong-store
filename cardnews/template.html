@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  /* 1080x1350 (4:5) card.
+     URL params: style=frame|full|cover  img  tag  title (| = line break)  sub  page */
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1350px;overflow:hidden}
+  body{font-family:"Pretendard","Malgun Gothic",sans-serif;color:#1f1d1a;word-break:keep-all;position:relative}
+  .dot{position:absolute;border-radius:50%}
+  .brand{position:absolute;left:80px;bottom:56px;font-size:28px;font-weight:800;display:flex;align-items:center;gap:12px;z-index:3}
+  .brand i{width:30px;height:30px;border-radius:50%;background:#f28a1e}
+  .page{position:absolute;right:80px;bottom:56px;font-size:28px;font-weight:700;z-index:3}
+  .tag{display:inline-block;background:#1f1d1a;color:#fff;font-weight:700;font-size:30px;padding:10px 26px;border-radius:999px}
+  h1{font-weight:800;letter-spacing:-.03em;line-height:1.18}
+
+  /* --- style: frame (사진 + 아래 글) --- */
+  .frame{background:#ffd84a}
+  .frame .photo{position:absolute;left:60px;right:60px;top:60px;height:780px;border-radius:48px;overflow:hidden;background:#f28a1e}
+  .frame .photo img{width:100%;height:100%;object-fit:cover}
+  .frame .dot.a{width:260px;height:260px;background:#f28a1e;right:-90px;bottom:-90px}
+  .frame .dot.b{width:70px;height:70px;background:#e2611b;right:100px;top:805px;z-index:2}
+  .frame .text{position:absolute;left:80px;right:80px;top:890px}
+  .frame h1{margin-top:26px;font-size:76px}
+  .frame p{margin-top:18px;font-size:34px;color:#5a4a2a}
+
+  /* --- style: full (사진 꽉 채움 + 글 오버레이) --- */
+  .full{background:#1f1d1a;color:#fff}
+  .full .bg{position:absolute;inset:0}
+  .full .bg img{width:100%;height:100%;object-fit:cover}
+  .full .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(20,14,5,.82) 78%)}
+  .full .text{position:absolute;left:80px;right:80px;bottom:150px;z-index:2}
+  .full .tag{background:#ffd84a;color:#1f1d1a}
+  .full h1{margin-top:28px;font-size:88px}
+  .full p{margin-top:20px;font-size:36px;color:#f3e6c8}
+  .full .brand,.full .page{color:#fff}
+  .full .dot.a{width:150px;height:150px;background:#f28a1e;right:70px;top:70px;z-index:2;display:grid;place-items:center;font-weight:800;font-size:30px;color:#fff;text-align:center;line-height:1.2}
+
+  /* --- style: cover (표지: 큰 글 + 원형 사진) --- */
+  .cover{background:#ffd84a}
+  .cover .dot.a{width:900px;height:900px;background:#f28a1e;right:-330px;bottom:-260px}
+  .cover .circle{position:absolute;width:640px;height:640px;right:70px;bottom:190px;border-radius:50%;overflow:hidden;border:16px solid #fff;box-shadow:0 30px 60px rgba(120,50,0,.3);z-index:2}
+  .cover .circle img{width:100%;height:100%;object-fit:cover}
+  .cover .text{position:absolute;left:80px;right:80px;top:110px;z-index:3}
+  .cover h1{margin-top:30px;font-size:104px}
+  .cover p{margin-top:22px;font-size:36px;max-width:640px}
+  .cover .swipe{position:absolute;left:80px;bottom:150px;font-size:30px;font-weight:800;z-index:3}
+</style>
+</head>
+<body>
+<script>
+  const q = new URLSearchParams(location.search);
+  const style = q.get('style') || 'frame';
+  const esc = s => (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const img = esc(q.get('img')), tag = esc(q.get('tag')), sub = esc(q.get('sub')), page = esc(q.get('page'));
+  const title = esc(q.get('title')).replace(/\|/g, '<br>');
+  const brand = '<div class="brand"><i></i>영영감귤상점 @yeongyeong_store</div>';
+  const pageEl = page ? `<div class="page">${page}</div>` : '';
+  document.body.className = style;
+  const html = {
+    frame: `<span class="dot a"></span><div class="photo"><img src="${img}" alt=""></div><span class="dot b"></span>
+            <div class="text"><span class="tag">${tag}</span><h1>${title}</h1><p>${sub}</p></div>${brand}${pageEl}`,
+    full:  `<div class="bg"><img src="${img}" alt=""></div><span class="dot a">제주<br>남원</span>
+            <div class="text"><span class="tag">${tag}</span><h1>${title}</h1><p>${sub}</p></div>${brand}${pageEl}`,
+    cover: `<span class="dot a"></span><div class="circle"><img src="${img}" alt=""></div>
+            <div class="text"><span class="tag">${tag}</span><h1>${title}</h1><p>${sub}</p></div>
+            <div class="swipe">옆으로 넘겨 보세요 →</div>${brand}${pageEl}`
+  }[style];
+  document.body.insertAdjacentHTML('beforeend', html);
+</script>
+</body>
+</html>

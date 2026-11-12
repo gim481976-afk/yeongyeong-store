@@ -1,0 +1,7 @@
+# 원본 백업과 웹에서 안 쓰는 원본 영상(HEVC)
+_originals/
+images/*.mp4
+# 로컬 미리보기 설정
+.claude/
+# 샘플 이미지
+cardnews/sample/

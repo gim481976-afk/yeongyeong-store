@@ -1,0 +1,60 @@
+# 카드뉴스 생성 + 스레드 예약 발행
+# - cardnews/posts 에 사진/글.txt 를 올리면: 카드뉴스 PNG 를 만들어 저장소에 커밋
+# - 30분마다: 발행 시간이 된 게시물을 스레드에 발행하고 발행완료.txt 를 커밋
+name: cardnews
+
+on:
+  push:
+    branches: [main]
+    paths: ['cardnews/posts/**', 'cardnews/template.html']
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cardnews
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 한글 글꼴 설치
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk > /dev/null
+
+      - name: 카드뉴스 만들기
+        shell: pwsh
+        run: ./cardnews/make.ps1
+
+      - name: 만든 카드 저장
+        run: |
+          git config user.name "cardnews-bot"
+          git config user.email "cardnews-bot@users.noreply.github.com"
+          git add cardnews/posts
+          if ! git diff --cached --quiet; then
+            git commit -m "카드뉴스 생성"
+            git push
+          fi
+
+      - name: 스레드 발행
+        shell: pwsh
+        env:
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+        run: |
+          $sha = git rev-parse HEAD
+          $env:RAW_BASE = "https://raw.githubusercontent.com/${{ github.repository }}/$sha"
+          ./cardnews/publish.ps1
+
+      - name: 발행 기록 저장
+        run: |
+          git add cardnews/posts
+          if ! git diff --cached --quiet; then
+            git commit -m "스레드 발행 기록"
+            git push
+          fi

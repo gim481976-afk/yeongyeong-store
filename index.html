@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>영영감귤상점 | 제주 남원 감귤 농장</title>
+<meta name="description" content="제주 서귀포 남원, 남쪽 바닷바람을 맞고 익은 노지감귤·황금향·한라봉. 영영감귤상점에서 문자로 주문하세요.">
+<meta property="og:title" content="영영감귤상점 | 제주 남원 감귤 농장">
+<meta property="og:description" content="남쪽 바닷바람을 맞고 익은 노지감귤·황금향·한라봉">
+<meta property="og:image" content="images/hwang/제목-없음-1.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --orange:#f28a1e;
+    --orange-deep:#e2611b;
+    --yellow:#ffd84a;
+    --cream:#fff8e6;
+    --gray:#ececea;
+    --stone:#3b3a36;
+    --leaf:#2f6b3a;
+    --ink:#1f1d1a;
+    --muted:#6b675f;
+    --white:#fff;
+    --wrap:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Pretendard",-apple-system,"Malgun Gothic",sans-serif;color:var(--ink);background:var(--white);line-height:1.6;word-break:keep-all;-webkit-font-smoothing:antialiased}
+  img,video{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--orange-deep);margin-bottom:12px}
+  .title{font-size:clamp(28px,4.2vw,44px);font-weight:800;line-height:1.25;letter-spacing:-.02em}
+  .title em{font-style:normal;color:var(--orange-deep)}
+  .lead{margin-top:16px;color:var(--muted);font-size:clamp(15px,1.6vw,17px)}
+  .center{text-align:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;background:var(--ink);color:var(--white);font-weight:700;font-size:15px;border:0;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+  .btn:hover{transform:translateY(-2px);background:var(--orange-deep)}
+  .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--white)}
+
+  /* header */
+  header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #f0ece2}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px;letter-spacing:-.02em}
+  .logo i{width:22px;height:22px;border-radius:50%;background:var(--orange);position:relative;flex:none}
+  .logo i::after{content:"";position:absolute;top:-5px;left:9px;width:9px;height:6px;border-radius:6px 0;background:var(--leaf);transform:rotate(-20deg)}
+  .nav ul{display:flex;gap:28px;list-style:none;font-size:15px;font-weight:600}
+  .nav ul a:hover{color:var(--orange-deep)}
+  .nav .btn{padding:9px 18px;font-size:14px}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;background:var(--yellow)}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:40px;min-height:660px;padding-top:56px;padding-bottom:56px}
+  .hero .dot{position:absolute;border-radius:50%;pointer-events:none}
+  .hero .dot.a{width:110px;height:110px;background:var(--orange-deep);left:-60px;bottom:-40px}
+  .hero .dot.b{width:680px;height:680px;background:var(--orange);right:-200px;top:-80px}
+  .hero-copy{position:relative;z-index:2}
+  .hero h1{font-size:clamp(34px,5.4vw,62px);font-weight:800;line-height:1.16;letter-spacing:-.03em}
+  .hero p{margin-top:20px;font-size:clamp(15px,1.7vw,18px);max-width:440px}
+  .hero .actions{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+  .hero .kinds{margin-top:28px;display:flex;gap:8px;flex-wrap:wrap}
+  .hero .kinds span{background:rgba(255,255,255,.7);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700}
+  .hero-media{position:relative;z-index:2;justify-self:center;width:min(540px,100%);aspect-ratio:1}
+  .hero-video{width:100%;height:100%;border-radius:50%;overflow:hidden;border:10px solid var(--white);box-shadow:0 30px 60px rgba(120,50,0,.28);background:#d9a441}
+  .hero-video video{width:100%;height:100%;object-fit:cover}
+  .bubble{position:absolute;border-radius:50%;overflow:hidden;border:6px solid var(--white);box-shadow:0 14px 30px rgba(0,0,0,.18)}
+  .bubble img{width:100%;height:100%;object-fit:cover}
+  .bubble.b1{width:28%;aspect-ratio:1;left:-8%;bottom:6%}
+  .bubble.b2{width:22%;aspect-ratio:1;right:-2%;top:2%}
+  .hero .live{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);background:var(--ink);color:var(--white);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;white-space:nowrap;z-index:3}
+  .hero .live::before{content:"";width:8px;height:8px;border-radius:50%;background:#ff4d3a;animation:blink 1.4s infinite}
+  @keyframes blink{50%{opacity:.25}}
+
+  /* story */
+  .story{background:var(--gray);padding:110px 0 120px;overflow:hidden}
+  .story .big{margin:56px auto 0;display:flex;align-items:center;justify-content:center}
+  .story .num{font-size:clamp(110px,22vw,260px);font-weight:900;letter-spacing:-.06em;line-height:1;color:var(--leaf)}
+  .story .num.unit{font-size:clamp(48px,8vw,96px);align-self:flex-start;margin-top:.4em;letter-spacing:-.02em}
+  .story .big img{width:clamp(130px,20vw,230px);aspect-ratio:3/4;object-fit:cover;border-radius:120px;border:8px solid var(--gray);margin:0 -10px;position:relative;z-index:1}
+  .story .caption{margin-top:14px;font-size:14px;color:var(--muted);text-align:center}
+  .story .facts{margin:56px auto 0;max-width:900px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .story .fact{background:var(--white);border-radius:20px;padding:26px 22px}
+  .story .fact b{display:block;font-size:17px;margin-bottom:6px}
+  .story .fact span{color:var(--muted);font-size:15px}
+  .film{margin:80px auto 0;max-width:980px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .film .frame{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:1;background:#222;box-shadow:0 20px 40px rgba(0,0,0,.15)}
+  .film video{width:100%;height:100%;object-fit:cover}
+  .film h3{font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;line-height:1.35}
+  .film p{margin-top:14px;color:var(--muted)}
+  .film ul{margin-top:18px;list-style:none;display:grid;gap:8px}
+  .film li{display:flex;gap:10px;align-items:baseline}
+  .film li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--orange);transform:translateY(-2px)}
+
+  /* products */
+  .products{background:var(--yellow);padding:110px 0 120px;overflow:hidden}
+  .products .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .slider-ctrl{display:flex;gap:8px}
+  .slider-ctrl button{width:46px;height:46px;border-radius:50%;border:2px solid var(--ink);background:transparent;font-size:18px;cursor:pointer;transition:background .2s,color .2s}
+  .slider-ctrl button:hover{background:var(--ink);color:var(--yellow)}
+  .track{--gutter:max(24px,calc((100vw - var(--wrap))/2 + 24px));margin-top:44px;display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--gutter);padding:0 var(--gutter) 24px;scrollbar-width:none}
+  .track::-webkit-scrollbar{display:none}
+  .card{flex:0 0 clamp(270px,30vw,340px);scroll-snap-align:start;background:var(--white);border-radius:24px;overflow:hidden;box-shadow:0 14px 30px rgba(140,90,0,.12);display:flex;flex-direction:column}
+  .card .ph{aspect-ratio:1;overflow:hidden}
+  .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .card:hover .ph img{transform:scale(1.05)}
+  .card .body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card .chip{align-self:flex-start;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--cream);color:var(--orange-deep)}
+  .card h3{font-size:22px;letter-spacing:-.02em}
+  .card p{color:var(--muted);font-size:15px}
+  .card .price{margin-top:auto;padding-top:12px;border-top:1px dashed #e4dccb;font-size:14px;color:var(--muted)}
+  .card .price b{color:var(--ink)}
+
+  /* album */
+  .album{padding:110px 0 120px;background:var(--white)}
+  .tabs{margin:36px auto 0;display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+  .tabs button{border:2px solid var(--ink);background:transparent;border-radius:999px;padding:9px 18px;font-weight:700;font-size:15px;cursor:pointer;transition:background .2s,color .2s}
+  .tabs button[aria-selected="true"],.tabs button:hover{background:var(--ink);color:var(--white)}
+  .tabs button small{font-weight:600;opacity:.6;margin-left:4px}
+  .grid{margin-top:36px;columns:4 220px;column-gap:12px}
+  .grid button{display:block;width:100%;margin:0 0 12px;border:0;padding:0;border-radius:16px;overflow:hidden;cursor:zoom-in;background:var(--cream);break-inside:avoid}
+  .grid img{width:100%;height:auto;transition:transform .5s}
+  .grid button:hover img{transform:scale(1.04)}
+  .grid button[hidden]{display:none}
+
+  .lightbox{position:fixed;inset:0;z-index:60;background:rgba(20,18,15,.92);display:none;align-items:center;justify-content:center;padding:24px}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:min(1000px,100%);max-height:86vh;border-radius:12px;object-fit:contain}
+  .lightbox button{position:absolute;width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:22px;cursor:pointer}
+  .lightbox button:hover{background:var(--orange)}
+  .lightbox .x{top:16px;right:16px}
+  .lightbox .prev{left:16px;top:50%;transform:translateY(-50%)}
+  .lightbox .next{right:16px;top:50%;transform:translateY(-50%)}
+  .lightbox .count{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#cfc8b8;font-size:14px}
+
+  /* packing */
+  .packing{background:var(--stone);color:var(--white);padding:110px 0;overflow:hidden}
+  .packing .title em{color:var(--yellow)}
+  .packing .lead{color:#cfc8b8}
+  .packing .eyebrow{color:var(--yellow)}
+  .pack-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+  .pack-video{position:relative;border-radius:50%;overflow:hidden;aspect-ratio:1;border:10px solid var(--orange);max-width:520px;width:100%;justify-self:center}
+  .pack-video video{width:100%;height:100%;object-fit:cover}
+  .pack-photos{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .pack-photos img{border-radius:14px;aspect-ratio:1;object-fit:cover;width:100%}
+
+  /* order */
+  .order{padding:110px 0;background:var(--cream)}
+  .order .cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .steps{list-style:none;margin-top:32px;display:grid;gap:14px}
+  .steps li{display:flex;gap:16px;align-items:flex-start;background:var(--white);border-radius:18px;padding:18px 20px}
+  .steps .n{flex:0 0 34px;height:34px;border-radius:50%;background:var(--orange);color:var(--white);font-weight:800;display:grid;place-items:center}
+  .steps b{display:block}
+  .steps span{color:var(--muted);font-size:15px}
+  .call{background:var(--ink);color:var(--white);border-radius:32px;padding:44px 40px;position:relative;overflow:hidden}
+  .call::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:var(--orange);right:-90px;bottom:-110px;opacity:.9}
+  .call small{color:#c9c3b6;font-size:14px}
+  .call .tel{display:block;margin:10px 0 24px;font-size:clamp(28px,3.6vw,40px);font-weight:800;letter-spacing:-.01em;position:relative;z-index:1}
+  .call .btn{background:var(--yellow);color:var(--ink);position:relative;z-index:1}
+  .call .btn:hover{background:var(--white)}
+  .call p{margin-top:22px;color:#c9c3b6;font-size:14px;position:relative;z-index:1}
+  .call .insta{display:inline-block;margin-top:10px;color:var(--yellow);font-weight:700;position:relative;z-index:1}
+
+  footer{background:var(--ink);color:#d8d3c8;padding:48px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer .logo{color:var(--white);margin-bottom:10px}
+  footer a:hover{color:var(--yellow)}
+
+  .mbar{display:none}
+
+  @media (max-width:900px){
+    .nav ul{display:none}
+    .hero .wrap{grid-template-columns:1fr;min-height:auto;padding-top:40px;padding-bottom:72px}
+    .hero .dot.b{width:460px;height:460px;right:-180px;top:auto;bottom:-60px}
+    .hero-media{width:min(360px,86%)}
+    .story,.products,.album,.packing,.order{padding:80px 0}
+    .story .facts{grid-template-columns:1fr}
+    .film,.pack-grid,.order .cols{grid-template-columns:1fr;gap:36px}
+    .grid{columns:2;column-gap:8px}
+    .grid button{margin-bottom:8px;border-radius:12px}
+    .call{padding:36px 28px}
+    body{padding-bottom:76px}
+    .mbar{display:flex;position:fixed;left:16px;right:16px;bottom:12px;z-index:50;justify-content:center;padding:15px;border-radius:999px;background:var(--orange-deep);color:var(--white);font-weight:800;box-shadow:0 10px 24px rgba(0,0,0,.2)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .hero .live::before{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo"><i></i>영영감귤상점</a>
+    <ul>
+      <li><a href="#story">과수원 이야기</a></li>
+      <li><a href="#products">올해의 귤</a></li>
+      <li><a href="#album">사진첩</a></li>
+      <li><a href="#packing">선별·포장</a></li>
+      <li><a href="#order">주문 안내</a></li>
+    </ul>
+    <a href="sms:01073354837" class="btn">문자 주문</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <span class="dot a"></span><span class="dot b"></span>
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">JEJU NAMWON · CITRUS FARM</span>
+        <h1>제주 남쪽<br>바닷바람이 키운<br>우리 귤</h1>
+        <p>서귀포 남원 과수원에서 직접 키우고, 직접 따고, 직접 골라 보내 드립니다.</p>
+        <div class="actions">
+          <a href="#products" class="btn">올해의 귤 보기 →</a>
+          <a href="#order" class="btn ghost">주문 방법</a>
+        </div>
+        <div class="kinds"><span>🍊 노지감귤</span><span>🍊 황금향</span><span>🍊 한라봉</span></div>
+      </div>
+      <div class="hero-media">
+        <div class="hero-video">
+          <video id="heroVideo" src="video/hero-harvest.mp4" poster="video/hero-harvest.jpg" autoplay muted loop playsinline preload="auto" aria-label="과수원에서 귤을 따는 영상"></video>
+        </div>
+        <div class="bubble b1"><img src="images/hwang/38-1.jpg" alt="황금향 단면"></div>
+        <div class="bubble b2"><img src="images/hanra/한라봉02.jpg" alt="나무에 달린 한라봉"></div>
+        <span class="live">지금 남원 과수원에서</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="wrap">
+      <div class="center">
+        <span class="eyebrow">OUR ORCHARD</span>
+        <h2 class="title">맛의 기준은 <em>바람과 햇살</em></h2>
+        <p class="lead">제주 남쪽 바닷바람을 맞으며, 계절의 속도대로 천천히 익힙니다.</p>
+      </div>
+      <div class="big">
+        <span class="num">33</span>
+        <img src="images/hwang/20241025_01.jpg" alt="과수원에서 감귤을 수확하는 모습">
+        <span class="num unit">°N</span>
+      </div>
+      <p class="caption">북위 33°, 제주에서도 가장 따뜻한 남쪽 과수원</p>
+      <div class="facts">
+        <div class="fact"><b>제주 남쪽, 남원</b><span>바다와 가까운 서귀포 남원 과수원에서 직접 기릅니다.</span></div>
+        <div class="fact"><b>바람과 햇살</b><span>남쪽 바닷바람을 맞고 자라 과즙이 풍부하고 단맛이 진합니다.</span></div>
+        <div class="fact"><b>직접 수확·선별</b><span>한 알씩 가위로 따고 골라 예약 순서대로 보내 드립니다.</span></div>
+      </div>
+
+      <div class="film">
+        <div class="frame">
+          <video src="video/harvest.mp4" poster="video/harvest.jpg" controls playsinline preload="none" aria-label="감귤 수확 영상"></video>
+        </div>
+        <div>
+          <span class="eyebrow">HARVEST FILM</span>
+          <h3>가위 한 번에 한 알씩,<br>손으로 따는 귤</h3>
+          <p>꼭지를 짧게 잘라야 다른 귤에 상처가 나지 않아요. 수확철이면 매일 이렇게 하나하나 따서 바구니를 채웁니다.</p>
+          <ul>
+            <li>나무에서 충분히 익은 것만 수확</li>
+            <li>가위로 꼭지를 짧게 잘라 흠집 방지</li>
+            <li>창고에서 다시 한 번 선별</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="wrap head">
+      <div>
+        <span class="eyebrow">THIS SEASON</span>
+        <h2 class="title">생생하게 익은 <em>올해의 귤</em></h2>
+      </div>
+      <div class="slider-ctrl">
+        <button type="button" data-dir="-1" aria-label="이전">←</button>
+        <button type="button" data-dir="1" aria-label="다음">→</button>
+      </div>
+    </div>
+    <div class="track" id="track">
+      <article class="card">
+        <div class="ph"><img src="images/noji/노지귤01.jpg" alt="나무에 주렁주렁 달린 노지감귤" loading="lazy"></div>
+        <div class="body">
+          <span class="chip">노지 재배</span>
+          <h3>노지감귤 · 궁천조생</h3>
+          <p>새콤달콤 균형이 좋은 제주 대표 감귤. 껍질이 얇고 잘 까져 온 가족 간식으로 좋아요.</p>
+          <div class="price">겨울 제철 · 예약 순서대로 발송</div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph"><img src="images/hwang/37-1.jpg" alt="현무암 위 황금향 단면" loading="lazy"></div>
+        <div class="body">
+          <span class="chip">노지 재배</span>
+          <h3>황금향</h3>
+          <p>남쪽 바닷바람을 맞고 노지에서 익었습니다. 과즙이 풍부하고 단맛이 강해요.</p>
+          <div class="price"><b>5kg</b> 25~30과 · <b>10kg</b> 55~60과</div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph"><img src="images/hanra/한라봉06.jpg" alt="나무에 달린 한라봉" loading="lazy"></div>
+        <div class="body">
+          <span class="chip">하우스 재배</span>
+          <h3>한라봉</h3>
+          <p>볼록 솟은 꼭지가 매력. 하우스에서 정성껏 키워 진한 단맛과 향을 담았습니다.</p>
+          <div class="price">선물 상자 포장 가능</div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph"><img src="images/noji/20241106_152549.jpg" alt="나무 위에 걸린 감귤 바구니" loading="lazy"></div>
+        <div class="body">
+          <span class="chip">예약제</span>
+          <h3>감귤따기 체험</h3>
+          <p>과수원에서 직접 귤을 따 보세요. 미리 문자로 예약하시면 체험이 가능합니다.</p>
+          <div class="price"><b>12월 중순 ~ 12월 말</b></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph"><img src="images/hwang/7.jpg" alt="황금향 선물 상자" loading="lazy"></div>
+        <div class="body">
+          <span class="chip">선물용</span>
+          <h3>마음을 담은 선물</h3>
+          <p>고마운 분께 제주 남쪽의 햇살을 보내 보세요. 받는 분 주소로 바로 보내 드립니다.</p>
+          <div class="price">가격·수량은 문자로 문의해 주세요</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ALBUM -->
+  <section class="album" id="album">
+    <div class="wrap">
+      <div class="center">
+        <span class="eyebrow">ORCHARD ALBUM</span>
+        <h2 class="title">과수원 <em>사진첩</em></h2>
+        <p class="lead">모두 남원 과수원에서 직접 찍은 사진입니다.</p>
+      </div>
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" data-filter="all" aria-selected="true">전체<small id="c-all"></small></button>
+        <button type="button" role="tab" data-filter="noji" aria-selected="false">노지감귤<small id="c-noji"></small></button>
+        <button type="button" role="tab" data-filter="hwang" aria-selected="false">황금향<small id="c-hwang"></small></button>
+        <button type="button" role="tab" data-filter="hanra" aria-selected="false">한라봉<small id="c-hanra"></small></button>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="center"><button type="button" class="btn ghost" id="moreBtn" style="margin-top:28px">사진 더 보기</button></div>
+    </div>
+  </section>
+
+  <!-- PACKING -->
+  <section class="packing" id="packing">
+    <div class="wrap pack-grid">
+      <div>
+        <span class="eyebrow">SORT &amp; PACK</span>
+        <h2 class="title">고르고, 담고,<br><em>정성껏 포장</em>합니다</h2>
+        <p class="lead">수확한 귤은 창고에서 한 알씩 다시 골라 상자에 담습니다. 흠집 난 귤은 빼고, 크기를 맞춰 보내 드려요.</p>
+        <div class="pack-photos">
+          <img src="images/hanra/한라봉04.jpg" alt="상자에 담긴 한라봉" loading="lazy">
+          <img src="images/hanra/한라봉05.jpg" alt="완충재 위 한라봉" loading="lazy">
+          <img src="images/hanra/Harvesting_Hallabong_citrus_fruits_2K_20261008152621.jpg" alt="하우스에서 수확해 상자에 담은 한라봉" loading="lazy" style="object-position:40% 70%">
+        </div>
+      </div>
+      <div class="pack-video">
+        <video id="packVideo" src="video/packing.mp4" poster="video/packing.jpg" muted loop playsinline preload="none" aria-label="창고에서 귤을 선별하고 포장하는 영상"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section class="order" id="order">
+    <div class="wrap cols">
+      <div>
+        <span class="eyebrow">HOW TO ORDER</span>
+        <h2 class="title">문자 한 통이면<br><em>주문 끝</em></h2>
+        <ol class="steps">
+          <li><span class="n">1</span><div><b>문자 보내기</b><span>품목·수량·받는 분 이름, 주소, 연락처를 보내 주세요.</span></div></li>
+          <li><span class="n">2</span><div><b>예약 확인</b><span>확인 문자로 주문 내용을 안내해 드립니다.</span></div></li>
+          <li><span class="n">3</span><div><b>순서대로 배송</b><span>수확 후 선별해 예약 순서대로 발송합니다.</span></div></li>
+        </ol>
+      </div>
+      <div class="call">
+        <small>문자 주문 · 체험 예약</small>
+        <a class="tel" href="sms:01073354837">010-7335-4837</a>
+        <a href="sms:01073354837" class="btn">문자 보내기 →</a>
+        <p>수확량이 한정되어 있어 조기 품절될 수 있어요.<br>과수원 소식은 인스타그램에서 먼저 전해 드립니다.</p>
+        <a class="insta" href="https://www.instagram.com/yeongyeong_store" target="_blank" rel="noopener">@yeongyeong_store →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logo"><i></i>영영감귤상점</div>
+      제주특별자치도 서귀포시 남원 · 대표 김미영<br>
+      문자 주문 <a href="sms:01073354837">010-7335-4837</a>
+    </div>
+    <div>
+      <a href="https://www.instagram.com/yeongyeong_store" target="_blank" rel="noopener">Instagram @yeongyeong_store</a><br>
+      © 영영감귤상점
+    </div>
+  </div>
+</footer>
+
+<a href="sms:01073354837" class="mbar">🍊 문자로 주문하기</a>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+  <img alt="">
+  <button type="button" class="x" aria-label="닫기">✕</button>
+  <button type="button" class="prev" aria-label="이전 사진">←</button>
+  <button type="button" class="next" aria-label="다음 사진">→</button>
+  <span class="count"></span>
+</div>
+
+<script>
+  /* ---------- photo album ---------- */
+  const PHOTOS = {
+    noji: {label:'노지감귤', files:['노지귤05.jpg','노지귤01.jpg','20241106_145349.jpg','노지귤02.jpg','노지귤03.jpg','20241106_152601.jpg','노지귤04.jpg','노지귤06.jpg','노지귤07.jpg','20241106_152633.jpg','노지귤08.jpg','노지귤09.jpg','노지귤10.jpg','20241106_152648.jpg','노지귤11.jpg','노지귤12.jpg','20241106_152549.jpg']},
+    hwang:{label:'황금향', files:['제목-없음-1.jpg','20241025_01.jpg','37-1.jpg','20241025_06.jpg','제목-없음-2.jpg','38-1.jpg','20241025_35.jpg','5.jpg','39-1.jpg','6.jpg','제목-없음-3.jpg','34-1.jpg','40-1.jpg','7.jpg','제목-없음-4.jpg','황금향01.jpg','황금향02.jpg']},
+    hanra:{label:'한라봉', files:['Harvesting_Hallabong_citrus_fruits_2K_20261008152621.jpg','한라봉01.jpg','한라봉03.jpg','한라봉02.jpg','한라봉04.jpg','한라봉06.jpg','한라봉05.jpg','한라봉07.jpg']}
+  };
+  const order = ['noji','hwang','hanra'];
+  const all = [];
+  // interleave categories so "전체" looks mixed
+  const maxLen = Math.max(...order.map(k => PHOTOS[k].files.length));
+  for (let i = 0; i < maxLen; i++) for (const k of order) { const f = PHOTOS[k].files[i]; if (f) all.push({cat:k, src:`images/${k}/${f}`, alt:`${PHOTOS[k].label} 사진`}); }
+
+  const grid = document.getElementById('grid');
+  all.forEach((p, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.dataset.cat = p.cat; b.dataset.i = i;
+    b.setAttribute('aria-label', p.alt + ' 크게 보기');
+    b.innerHTML = `<img src="${p.src}" alt="${p.alt}" loading="lazy">`;
+    grid.appendChild(b);
+  });
+  document.getElementById('c-all').textContent = all.length;
+  order.forEach(k => document.getElementById('c-' + k).textContent = PHOTOS[k].files.length);
+
+  let current = 'all', expanded = false;
+  const LIMIT = 16, moreBtn = document.getElementById('moreBtn');
+  function applyFilter(){
+    let n = 0;
+    grid.querySelectorAll('button').forEach(b => {
+      const match = current === 'all' || b.dataset.cat === current;
+      b.hidden = !match || (!expanded && n >= LIMIT);
+      if (match) n++;
+    });
+    moreBtn.hidden = expanded || n <= LIMIT;
+  }
+  moreBtn.addEventListener('click', () => { expanded = true; applyFilter(); });
+  document.querySelectorAll('.tabs button').forEach(t => t.addEventListener('click', () => {
+    current = t.dataset.filter; expanded = false;
+    document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-selected', x === t));
+    applyFilter();
+  }));
+  applyFilter();
+
+  /* ---------- lightbox ---------- */
+  const lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img'), lbCount = lb.querySelector('.count');
+  let list = [], pos = 0;
+  function show(){ const p = list[pos]; lbImg.src = p.src; lbImg.alt = p.alt; lbCount.textContent = `${pos+1} / ${list.length}`; }
+  function open(i){ list = all.filter(p => current === 'all' || p.cat === current); pos = list.indexOf(all[i]); show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; lb.querySelector('.x').focus(); }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+  function step(d){ pos = (pos + d + list.length) % list.length; show(); }
+  grid.addEventListener('click', e => { const b = e.target.closest('button'); if (b) open(+b.dataset.i); });
+  lb.querySelector('.x').onclick = close;
+  lb.querySelector('.prev').onclick = () => step(-1);
+  lb.querySelector('.next').onclick = () => step(1);
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', e => { if (!lb.classList.contains('open')) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') step(-1); if (e.key === 'ArrowRight') step(1); });
+
+  /* ---------- product slider ---------- */
+  const track = document.getElementById('track');
+  document.querySelectorAll('.slider-ctrl button').forEach(b => b.addEventListener('click', () => {
+    const card = track.querySelector('.card');
+    const w = card ? card.getBoundingClientRect().width + 20 : 320;
+    track.scrollBy({left: w * Number(b.dataset.dir), behavior: 'smooth'});
+  }));
+
+  /* ---------- videos: play only when visible ---------- */
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const autoVids = [document.getElementById('heroVideo'), document.getElementById('packVideo')];
+  if (reduce) autoVids.forEach(v => { v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+  else if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(en => {
+      const v = en.target;
+      if (en.isIntersecting) { v.play().catch(() => {}); } else { v.pause(); }
+    }), {threshold: .25});
+    autoVids.forEach(v => io.observe(v));
+  }
+</script>
+</body>
+</html>
