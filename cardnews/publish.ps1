@@ -51,7 +51,10 @@ foreach ($f in (Get-ChildItem $PostsDir -Directory | Sort-Object Name)) {
 
   $cards = @(Get-ChildItem (Join-Path $f.FullName $CardsDirName) -Filter *.png -ErrorAction SilentlyContinue | Sort-Object Name | Select-Object -First 20)
   if (-not $cards.Count) { Write-Output "[주의] $($f.Name): 카드뉴스가 아직 없음"; continue }
-  $text = [string]$p.Head.body
+  $text = ([string]$p.Head.body).TrimEnd()
+  # 링크: 기본은 랜딩페이지. 글.txt 에 "링크: 없음" 이면 안 붙이고, "링크: 주소" 면 그 주소를 붙임
+  $link = if ($p.Head.link) { $p.Head.link.Trim() } else { $SiteUrl }
+  if ($link -and $link -ne '없음' -and -not $text.Contains($link)) { $text = "$text`n`n🍊 $link" }
   $urls = @($cards | ForEach-Object { To-PublicUrl $_.FullName })
 
   if ($DryRun) {

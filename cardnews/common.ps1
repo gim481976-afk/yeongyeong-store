@@ -1,8 +1,9 @@
 ﻿# 카드뉴스 공용 함수 (make.ps1, publish.ps1 에서 불러 씀). Windows PowerShell 5.1 / PowerShell 7 겸용.
-$script:KeyMap = @{ '스타일'='style'; '태그'='tag'; '제목'='title'; '부제'='sub'; '사진'='img'; '본문'='body'; '발행'='publish' }
+$script:KeyMap = @{ '스타일'='style'; '태그'='tag'; '제목'='title'; '부제'='sub'; '사진'='img'; '본문'='body'; '발행'='publish'; '링크'='link' }
 $script:PostsDir = Join-Path $PSScriptRoot 'posts'
 $script:CardsDirName = '카드뉴스'
 $script:DoneFileName = '발행완료.txt'
+$script:SiteUrl = 'https://gim481976-afk.github.io/yeongyeong-store/'
 
 function Parse-Block([string[]]$lines) {
   $o = @{}; $last = $null
