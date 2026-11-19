@@ -1,0 +1,27 @@
+# 스레드 토큰 확인 (아무것도 게시하지 않고, 연결된 계정 이름과 권한만 확인)
+name: check-threads-token
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 토큰으로 계정 확인
+        env:
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+        run: |
+          if [ -z "$THREADS_TOKEN" ]; then echo "THREADS_TOKEN 이 없습니다."; exit 1; fi
+          RESP=$(curl -s --get "https://graph.threads.com/v1.0/me" \
+            --data-urlencode "fields=id,username" \
+            --data-urlencode "access_token=$THREADS_TOKEN")
+          USER=$(echo "$RESP" | jq -r '.username // empty')
+          if [ -z "$USER" ]; then
+            echo "토큰 확인 실패: $(echo "$RESP" | jq -c '.error | {message, type, code}')"; exit 1
+          fi
+          echo "연결된 스레드 계정: @$USER"
+          LIMIT=$(curl -s --get "https://graph.threads.com/v1.0/me/threads_publishing_limit" \
+            --data-urlencode "fields=quota_usage,config" \
+            --data-urlencode "access_token=$THREADS_TOKEN")
+          echo "게시 한도: $(echo "$LIMIT" | jq -c '.data[0] // .error.message')"
